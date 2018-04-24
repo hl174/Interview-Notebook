@@ -119,6 +119,27 @@ public int mySqrt(int x) {
     return h;
 }
 ```
+```c++
+ int arrangeCoins(int n) {
+        /**
+        二分查找：和(1+x)x/2 与n进行比较
+        */
+        if(n<=1)  return n;
+        int left = 1, right = n; ///这里的int在Leetcode中过不了大数据用例，全改为long
+        while(left <= right)
+        {
+          int mid =  left + (right - left)/2;
+          int sum=(mid+1)*mid/2;
+          if(sum == x)
+            return mid;
+           if(sum > x)
+               right = mid -1;
+           else
+               left = mid+1;
+        }
+    return right;
+    }
+```
 
 **摆硬币** 
 
